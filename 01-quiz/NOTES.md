@@ -46,3 +46,27 @@ Exit from the program with an error
 ```
 os.Exit(1)
 ```
+
+## creating a timer - not a ticker
+
+```go
+timer := time.NewTimer(time.Duration(*timeLimit * int(time.Second)))
+```
+
+## select case
+
+select blocks the code. it is like a switch case where there are special cases and default case.
+
+```go
+select {
+		case <-timer.C:
+			fmt.Println()
+			break problemLoop
+		case answer := <-answerCh:
+			if answer == p.a {
+				correctCount++
+			}
+		}
+```
+
+this is a typical go select block where we have two different cases listens to different channels. If we get sth from timer channel we are breaking the loop (in go loops can have labels), if we get answer from the answerChannel we evaluate the answer and increase the counter.
