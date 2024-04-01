@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"strings"
 
 	linkparser "github.com/uguremirmustafa/linkparser"
@@ -135,17 +134,13 @@ var ex4 = `
 </html>
 `
 
-func printLinks(r io.Reader) {
-	links, err := linkparser.Parse(r)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("%+v\n", links)
-}
-
 func main() {
 	for _, ex := range []string{ex1, ex2, ex3, ex4} {
 		r := strings.NewReader(ex)
-		printLinks(r)
+		links, err := linkparser.Parse(r)
+		if err != nil {
+			panic(err)
+		}
+		fmt.Printf("%+v\n", links)
 	}
 }
