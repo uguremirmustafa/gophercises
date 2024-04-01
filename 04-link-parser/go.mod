@@ -1,4 +1,4 @@
-module github.com/uguremirmustafa/link-parser
+module github.com/uguremirmustafa/linkparser
 
 go 1.22.1
 

@@ -5,7 +5,7 @@ import (
 	"io"
 	"strings"
 
-	linkparser "github.com/uguremirmustafa/link-parser"
+	linkparser "github.com/uguremirmustafa/linkparser"
 )
 
 var ex1 = `
